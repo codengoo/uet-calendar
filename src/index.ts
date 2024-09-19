@@ -1,12 +1,9 @@
-import { getData, ParseData } from "./modules"
-import { extractCol, extractRow, extractTable } from "./utils";
+import { Subject } from "./modules"
 
 (async function index() {
-    const raw = await getData();
-    const table = extractTable(raw);
-    const rows = extractRow(table[0]);
-    const columns = extractCol(rows[2]);
-    const data = ParseData(columns);
+    const subject = new Subject({name: "Nghia", semester:"041"});
+    const data = await subject.craw();
 
     console.log(data);
+    
 })()
