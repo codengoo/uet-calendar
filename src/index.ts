@@ -1,9 +1,12 @@
-import { Subject } from "./modules"
+import { Subject, SubjectPipeline, SubjectStudent } from "./modules"
 
 (async function index() {
-    const subject = new Subject({name: "Nghia", semester:"041"});
-    const data = await subject.craw();
+    const pipeline = new SubjectPipeline();
+    pipeline.addAggregateBySID();
 
-    console.log(data);
+    const subject = new Subject({sid: "2202832", semester:"041"}, pipeline);
+    const data = await subject.craw<SubjectStudent>();
+
+    console.log(data[0]);
     
 })()
