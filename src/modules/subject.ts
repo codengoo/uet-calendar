@@ -1,5 +1,3 @@
-import axios from "axios";
-import https from "https";
 import { Student } from "../models/student";
 import { extractCol, extractRow, extractTable } from "../utils";
 import { BaseCrawler } from "./base";

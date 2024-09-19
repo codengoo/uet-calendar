@@ -1,12 +1,14 @@
-import { Subject, PipelineBase, SubjectStudent, SubjectPipeline } from "./modules"
+import { Calendar, CalendarPipeline } from "./modules"
 
 (async function index() {
-    const pipeline = new SubjectPipeline();
-    pipeline.addAggregateBySID();
+  const pipeline = new CalendarPipeline();
+  pipeline
+    .addAggregateBySubjectClassCode()
+    .addFilterByGroup("2");
 
-    const subject = new Subject({sid: "2202832", semester:"041"}, pipeline);
-    const data = await subject.craw<SubjectStudent[]>();
+  const calendar = new Calendar({ subjectName: "3261" }, pipeline)
+  const data = await calendar.craw()
 
-    console.log(data[0]);
-    
+  console.log(data[0]);
+
 })()
