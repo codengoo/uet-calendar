@@ -3,7 +3,7 @@ import https from "https";
 import { PipelineBase } from "../pipelines/base";
 import { extractCol, extractRow, extractTable } from "../../utils";
 
-interface IMarked{
+interface IMarked {
     table_start: number;
     row_start: number;
 }
@@ -46,7 +46,6 @@ export abstract class BaseCrawler {
         if (raw) {
             const table = extractTable(raw);
             const rows = extractRow(table[this.marked.table_start]);
-            
             const data = rows.slice(this.marked.row_start)
                 .map(row => {
                     const columns = extractCol(row);

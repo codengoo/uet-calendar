@@ -37,8 +37,8 @@ export class Subject extends BaseCrawler {
 
   constructor(options?: ISubjectOption, pipeline?: SubjectPipeline) {
     super(Subject.DefaultHost, pipeline, {
-      row_start: 0,
-      table_start: 2
+      table_start: 0,
+      row_start: 2
     });
     this.options = options || {};
   }

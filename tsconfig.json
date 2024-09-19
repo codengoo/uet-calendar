@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "NodeNext",    
+    "module": "ESNext",    
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "strict": true,
     "jsx": "preserve"
   }
