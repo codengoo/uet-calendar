@@ -1,7 +1,12 @@
-import { Student } from "../models/student";
-import { extractCol, extractRow, extractTable } from "../utils";
 import { BaseCrawler } from "./base";
-import { PipelineBase } from "./pipeline";
+import { SubjectPipeline } from "../pipelines";
+
+export interface Student {
+  sid: string;
+  name: string;
+  dob: Date;
+  officialClass: string;
+}
 
 export interface ISubject {
   student: Student,
@@ -26,49 +31,15 @@ export interface ISubjectOption {
   semester?: string
 }
 
-export interface SubjectStudent {
-  student: {
-    sid: string
-  },
-  subjects: object[]
-}
-
-export class SubjectPipeline extends PipelineBase {
-  constructor() {
-    super();
-  }
-
-  public addAggregateBySID(): this {
-    this.pipeline.push((data: ISubject[]): SubjectStudent[] => {
-
-      const aggregatedBySid = data.reduce((acc, item) => {
-        const { student, ...rest } = item;
-        const sid = student.sid
-
-        if (!acc[sid]) {
-          acc[sid] = {
-            student: student,
-            subjects: [{ ...rest }]
-          };
-        } else {
-          acc[sid].subjects.push({ ...rest });
-        }
-        return acc;
-      }, {} as Record<string, SubjectStudent>);
-
-      return Object.values<SubjectStudent>(aggregatedBySid);
-    });
-
-    return this;
-  }
-}
-
 export class Subject extends BaseCrawler {
-  public static readonly DefaultHost:string = "https://112.137.129.87/qldt/";
+  public static readonly DefaultHost: string = "https://112.137.129.87/qldt/";
   private options: ISubjectOption;
 
   constructor(options?: ISubjectOption, pipeline?: SubjectPipeline) {
-    super(Subject.DefaultHost, pipeline);
+    super(Subject.DefaultHost, pipeline, {
+      row_start: 0,
+      table_start: 2
+    });
     this.options = options || {};
   }
 
@@ -103,23 +74,5 @@ export class Subject extends BaseCrawler {
       note: data[9],
       semester: data[10]
     }
-  }
-
-  public async craw<T = any>(): Promise<T> {
-    const raw = await this.fetchData();
-    if (raw) {
-      const table = extractTable(raw);
-      const rows = extractRow(table[0]);
-
-      const data = rows.slice(2)
-        .map(row => {
-          const columns = extractCol(row);
-          return this.parse(columns);
-        })
-        .filter(data => !!data);
-
-      return this.pipeline.runPipeline<T>(data);
-    }
-    return [] as T;
   }
 }
