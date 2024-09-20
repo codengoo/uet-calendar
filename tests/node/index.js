@@ -1,4 +1,4 @@
-const UET = require("../../dist");
+const UET = require("@nghiavuive/uet-calendar");
 
 (async () => {
     const pipeline = new UET.SubjectPipeline();

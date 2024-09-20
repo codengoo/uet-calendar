@@ -1,10 +1,6 @@
 // uet-crawler - NghiaDT - 2024
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var axios = require('axios');
-var https = require('https');
+import axios from 'axios';
+import https from 'https';
 
 var __defProp$3 = Object.defineProperty;
 var __defNormalProp$3 = (obj, key, value) => key in obj ? __defProp$3(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -235,8 +231,4 @@ var UET = /*#__PURE__*/Object.freeze({
   SubjectPipeline: SubjectPipeline
 });
 
-exports.Calendar = Calendar;
-exports.CalendarPipeline = CalendarPipeline;
-exports.Subject = Subject;
-exports.SubjectPipeline = SubjectPipeline;
-exports.default = UET;
+export { Calendar, CalendarPipeline, Subject, SubjectPipeline, UET as default };

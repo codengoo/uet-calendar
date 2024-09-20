@@ -117,4 +117,23 @@ declare class Subject extends BaseCrawler {
     protected parse(data: string[]): ISubject | undefined;
 }
 
-export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type ISubject, type ISubjectOption, type Student, Subject, SubjectPipeline, type SubjectStudent };
+type UET_Calendar = Calendar;
+declare const UET_Calendar: typeof Calendar;
+type UET_CalendarPipeline = CalendarPipeline;
+declare const UET_CalendarPipeline: typeof CalendarPipeline;
+type UET_ICalendar = ICalendar;
+type UET_ICalendarOption = ICalendarOption;
+type UET_ICalendarSubject = ICalendarSubject;
+type UET_ISubject = ISubject;
+type UET_ISubjectOption = ISubjectOption;
+type UET_Student = Student;
+type UET_Subject = Subject;
+declare const UET_Subject: typeof Subject;
+type UET_SubjectPipeline = SubjectPipeline;
+declare const UET_SubjectPipeline: typeof SubjectPipeline;
+type UET_SubjectStudent = SubjectStudent;
+declare namespace UET {
+  export { UET_Calendar as Calendar, UET_CalendarPipeline as CalendarPipeline, type UET_ICalendar as ICalendar, type UET_ICalendarOption as ICalendarOption, type UET_ICalendarSubject as ICalendarSubject, type UET_ISubject as ISubject, type UET_ISubjectOption as ISubjectOption, type UET_Student as Student, UET_Subject as Subject, UET_SubjectPipeline as SubjectPipeline, type UET_SubjectStudent as SubjectStudent };
+}
+
+export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type ISubject, type ISubjectOption, type Student, Subject, SubjectPipeline, type SubjectStudent, UET as default };

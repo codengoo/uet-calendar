@@ -26,14 +26,14 @@ export default defineConfig([
             },
             // browser ESM bundle for CDN
             {
-                file: `dist/esm/${name}.js`,
+                file: `dist/${name}.js`,
                 format: "esm",
                 banner: banner,
             }],
         plugins: [
             autoExternal(),
             resolve(),
-            terser(),
+            // terser(),
             esbuild()
         ]
     },
@@ -42,16 +42,21 @@ export default defineConfig([
     //     output: [
     //         // UMD bundle for browser
     //         {
-    //             file: `dist/umd/${name}.js`,
+    //             file: `dist/${name}.js`,
     //             format: "umd",
     //             banner: banner,
     //             name: "uet",
+    //             globals: {
+    //                 axios: "axios",
+    //                 https: "https"
+    //             }
     //         }],
     //     plugins: [
     //         autoExternal(),
-    //         resolve({ browser: true }),
-    //         terser(),
     //         nodePolyfills(),
+    //         resolve({ browser: true }),
+    //         // terser(),
+    //         nodePolyfills({include: null}),
     //         esbuild()
     //     ]
     // },
@@ -63,11 +68,11 @@ export default defineConfig([
         },
         plugins: [
             dts(),
-            copy({
-                targets: [
-                    { src: "package.json", dest: "dist" }
-                ]
-            })
+            // copy({
+            //     targets: [
+            //         { src: "package.json", dest: "dist" }
+            //     ]
+            // })
         ],
     }
 ]);
