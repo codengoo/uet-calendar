@@ -111,12 +111,13 @@ const _Calendar = class _Calendar extends BaseCrawler {
       sessionOfDay: data[7],
       dayOfWeek: data[8],
       session: this.parseSession(data[9]),
+      sessionInHour: this.parseSession(data[9], 6),
       lectureHall: data[10],
       group: data[11]
     };
   }
-  parseSession(text) {
-    return text.split("-").map((item) => parseInt(item));
+  parseSession(text, pad = 0) {
+    return text.split("-").map((item) => parseInt(item) + pad);
   }
 };
 __publicField$1(_Calendar, "DefaultHost", "http://112.137.129.115/tkb/listbylist.php");

@@ -1,6 +1,6 @@
 {
   "name": "@nghiavuive/uet-course",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "dist/node/index.cjs",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
@@ -20,7 +20,8 @@
   "scripts": {
     "dev": "nodemon .",
     "build": "npm run build:clear && rollup -c",
-    "build:clear": "rimraf dist"
+    "build:clear": "rimraf dist",
+    "publish": "npm publish"
   },
   "author": {
     "name": "NghiaCaNgao",

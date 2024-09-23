@@ -1,7 +1,7 @@
 import { BaseCrawler } from "./base";
 import { SubjectPipeline } from "../pipelines";
 
-export interface Student {
+export interface IStudent {
   sid: string;
   name: string;
   dob: Date;
@@ -9,7 +9,7 @@ export interface Student {
 }
 
 export interface ISubject {
-  student: Student,
+  student: IStudent,
   subjectCode: string,
   subjectName: string,
   group: string,

@@ -1,10 +1,8 @@
-import { ISubject } from "../crawlers";
+import { IStudent, ISubject } from "../crawlers";
 import { PipelineBase } from "./base";
 
 export interface SubjectStudent {
-  student: {
-    sid: string
-  },
+  student: IStudent
   subjects: Omit<ISubject, "student">[]
 }
 

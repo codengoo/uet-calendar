@@ -5,6 +5,7 @@ export interface ICalendar extends Omit<Required<ICalendarOption>, "semester"> {
     credit: number;
     numStudent: number;
     session: number[];
+    sessionInHour: number[];
     group: string;
     sessionOfDay: string
 }
@@ -55,12 +56,13 @@ export class Calendar extends BaseCrawler {
             sessionOfDay: data[7],
             dayOfWeek: data[8],
             session: this.parseSession(data[9]),
+            sessionInHour: this.parseSession(data[9], 6),
             lectureHall: data[10],
             group: data[11]
         }
     }
 
-    private parseSession(text: string) {
-        return text.split("-").map(item => parseInt(item));
+    private parseSession(text: string, pad: number = 0) {
+        return text.split("-").map(item => parseInt(item) + pad);
     }
 }

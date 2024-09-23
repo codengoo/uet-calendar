@@ -21,9 +21,7 @@ declare abstract class BaseCrawler {
 }
 
 interface SubjectStudent {
-    student: {
-        sid: string;
-    };
+    student: IStudent;
     subjects: Omit<ISubject, "student">[];
 }
 declare class SubjectPipeline extends PipelineBase {
@@ -42,6 +40,7 @@ interface ICalendar extends Omit<Required<ICalendarOption>, "semester"> {
     credit: number;
     numStudent: number;
     session: number[];
+    sessionInHour: number[];
     group: string;
     sessionOfDay: string;
 }
@@ -71,14 +70,14 @@ declare class Calendar extends BaseCrawler {
     private parseSession;
 }
 
-interface Student {
+interface IStudent {
     sid: string;
     name: string;
     dob: Date;
     officialClass: string;
 }
 interface ISubject {
-    student: Student;
+    student: IStudent;
     subjectCode: string;
     subjectName: string;
     group: string;
@@ -124,16 +123,16 @@ declare const UETCrawler_CalendarPipeline: typeof CalendarPipeline;
 type UETCrawler_ICalendar = ICalendar;
 type UETCrawler_ICalendarOption = ICalendarOption;
 type UETCrawler_ICalendarSubject = ICalendarSubject;
+type UETCrawler_IStudent = IStudent;
 type UETCrawler_ISubject = ISubject;
 type UETCrawler_ISubjectOption = ISubjectOption;
-type UETCrawler_Student = Student;
 type UETCrawler_Subject = Subject;
 declare const UETCrawler_Subject: typeof Subject;
 type UETCrawler_SubjectPipeline = SubjectPipeline;
 declare const UETCrawler_SubjectPipeline: typeof SubjectPipeline;
 type UETCrawler_SubjectStudent = SubjectStudent;
 declare namespace UETCrawler {
-  export { UETCrawler_Calendar as Calendar, UETCrawler_CalendarPipeline as CalendarPipeline, type UETCrawler_ICalendar as ICalendar, type UETCrawler_ICalendarOption as ICalendarOption, type UETCrawler_ICalendarSubject as ICalendarSubject, type UETCrawler_ISubject as ISubject, type UETCrawler_ISubjectOption as ISubjectOption, type UETCrawler_Student as Student, UETCrawler_Subject as Subject, UETCrawler_SubjectPipeline as SubjectPipeline, type UETCrawler_SubjectStudent as SubjectStudent };
+  export { UETCrawler_Calendar as Calendar, UETCrawler_CalendarPipeline as CalendarPipeline, type UETCrawler_ICalendar as ICalendar, type UETCrawler_ICalendarOption as ICalendarOption, type UETCrawler_ICalendarSubject as ICalendarSubject, type UETCrawler_IStudent as IStudent, type UETCrawler_ISubject as ISubject, type UETCrawler_ISubjectOption as ISubjectOption, UETCrawler_Subject as Subject, UETCrawler_SubjectPipeline as SubjectPipeline, type UETCrawler_SubjectStudent as SubjectStudent };
 }
 
-export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type ISubject, type ISubjectOption, type Student, Subject, SubjectPipeline, type SubjectStudent, UETCrawler as default };
+export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type IStudent, type ISubject, type ISubjectOption, Subject, SubjectPipeline, type SubjectStudent, UETCrawler as default };
