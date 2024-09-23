@@ -1,6 +1,6 @@
 {
-  "name": "@nghiavuive/uet-calendar",
-  "version": "1.0.4",
+  "name": "@nghiavuive/uet-course",
+  "version": "1.0.1",
   "main": "dist/node/index.cjs",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
@@ -43,7 +43,6 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.22.0",
     "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-polyfill-node": "^0.13.0",

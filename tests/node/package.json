@@ -2,6 +2,7 @@
   "name": "test-node",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,6 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@nghiavuive/uet-calendar": "^1.0.1"
+    "@nghiavuive/uet-course": "^1.0.0"
   }
 }

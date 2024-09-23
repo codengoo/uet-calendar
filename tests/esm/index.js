@@ -1,4 +1,4 @@
-import UET from "@nghiavuive/uet-calendar"
+import UET from "@nghiavuive/uet-course"
 
 (async () => {
   const pipeline = new UET.SubjectPipeline();

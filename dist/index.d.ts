@@ -24,7 +24,7 @@ interface SubjectStudent {
     student: {
         sid: string;
     };
-    subjects: object[];
+    subjects: Omit<ISubject, "student">[];
 }
 declare class SubjectPipeline extends PipelineBase {
     constructor();
@@ -117,23 +117,23 @@ declare class Subject extends BaseCrawler {
     protected parse(data: string[]): ISubject | undefined;
 }
 
-type UET_Calendar = Calendar;
-declare const UET_Calendar: typeof Calendar;
-type UET_CalendarPipeline = CalendarPipeline;
-declare const UET_CalendarPipeline: typeof CalendarPipeline;
-type UET_ICalendar = ICalendar;
-type UET_ICalendarOption = ICalendarOption;
-type UET_ICalendarSubject = ICalendarSubject;
-type UET_ISubject = ISubject;
-type UET_ISubjectOption = ISubjectOption;
-type UET_Student = Student;
-type UET_Subject = Subject;
-declare const UET_Subject: typeof Subject;
-type UET_SubjectPipeline = SubjectPipeline;
-declare const UET_SubjectPipeline: typeof SubjectPipeline;
-type UET_SubjectStudent = SubjectStudent;
-declare namespace UET {
-  export { UET_Calendar as Calendar, UET_CalendarPipeline as CalendarPipeline, type UET_ICalendar as ICalendar, type UET_ICalendarOption as ICalendarOption, type UET_ICalendarSubject as ICalendarSubject, type UET_ISubject as ISubject, type UET_ISubjectOption as ISubjectOption, type UET_Student as Student, UET_Subject as Subject, UET_SubjectPipeline as SubjectPipeline, type UET_SubjectStudent as SubjectStudent };
+type UETCrawler_Calendar = Calendar;
+declare const UETCrawler_Calendar: typeof Calendar;
+type UETCrawler_CalendarPipeline = CalendarPipeline;
+declare const UETCrawler_CalendarPipeline: typeof CalendarPipeline;
+type UETCrawler_ICalendar = ICalendar;
+type UETCrawler_ICalendarOption = ICalendarOption;
+type UETCrawler_ICalendarSubject = ICalendarSubject;
+type UETCrawler_ISubject = ISubject;
+type UETCrawler_ISubjectOption = ISubjectOption;
+type UETCrawler_Student = Student;
+type UETCrawler_Subject = Subject;
+declare const UETCrawler_Subject: typeof Subject;
+type UETCrawler_SubjectPipeline = SubjectPipeline;
+declare const UETCrawler_SubjectPipeline: typeof SubjectPipeline;
+type UETCrawler_SubjectStudent = SubjectStudent;
+declare namespace UETCrawler {
+  export { UETCrawler_Calendar as Calendar, UETCrawler_CalendarPipeline as CalendarPipeline, type UETCrawler_ICalendar as ICalendar, type UETCrawler_ICalendarOption as ICalendarOption, type UETCrawler_ICalendarSubject as ICalendarSubject, type UETCrawler_ISubject as ISubject, type UETCrawler_ISubjectOption as ISubjectOption, type UETCrawler_Student as Student, UETCrawler_Subject as Subject, UETCrawler_SubjectPipeline as SubjectPipeline, type UETCrawler_SubjectStudent as SubjectStudent };
 }
 
-export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type ISubject, type ISubjectOption, type Student, Subject, SubjectPipeline, type SubjectStudent, UET as default };
+export { Calendar, CalendarPipeline, type ICalendar, type ICalendarOption, type ICalendarSubject, type ISubject, type ISubjectOption, type Student, Subject, SubjectPipeline, type SubjectStudent, UETCrawler as default };

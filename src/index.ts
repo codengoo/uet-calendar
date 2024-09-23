@@ -1,3 +1,3 @@
 export * from "./modules"
-import * as UET from "./modules";
-export default UET;
+import * as UETCrawler from "./modules";
+export default UETCrawler;

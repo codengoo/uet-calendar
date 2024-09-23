@@ -10,5 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@nghiavuive/uet-course": "^1.0.0"
   }
 }

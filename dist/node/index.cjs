@@ -227,7 +227,7 @@ class CalendarPipeline extends PipelineBase {
   }
 }
 
-var UET = /*#__PURE__*/Object.freeze({
+var UETCrawler = /*#__PURE__*/Object.freeze({
   __proto__: null,
   Calendar: Calendar,
   CalendarPipeline: CalendarPipeline,
@@ -239,4 +239,4 @@ exports.Calendar = Calendar;
 exports.CalendarPipeline = CalendarPipeline;
 exports.Subject = Subject;
 exports.SubjectPipeline = SubjectPipeline;
-exports.default = UET;
+exports.default = UETCrawler;

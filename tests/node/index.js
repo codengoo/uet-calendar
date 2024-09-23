@@ -1,4 +1,5 @@
-const UET = require("@nghiavuive/uet-calendar");
+const UET = require("@nghiavuive/uet-course");
+const b = require("axios");
 
 (async () => {
     const pipeline = new UET.SubjectPipeline();
